@@ -6,11 +6,18 @@ name = "pypi"
 [packages]
 Django = "*"
 lts = "*"
-psycopg2-binary = "*"
+psycopg2-binary = "==2.8.6"
 django-bootstrap-v5 = "*"
 Pillow = "*"
 gunicorn = "*"
 django-heroku = "*"
+python-decouple = "*"
+django-registration = "==2.4.1"
+django-tinymce = "*"
+django = "*"
+django-utils-six = "*"
+crispy-bootstrap5 = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 

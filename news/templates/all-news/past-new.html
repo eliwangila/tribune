@@ -10,9 +10,10 @@
     <div class="row">
         <!-- displaying News articles -->
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <h2 class="text-center"> {{ news_item.title }} {{ news_item.id }} </h2>
-            <p>{{ news_item.tags }} hello</p>
-            <p>{{ tags }}</p>
+            <h2 class="text-center"> <a href="/article/{{ news_item.id }}"></a> {{ news_item.title }}  </h2>
+            {% for tag in news_item.tags.all %}
+        <h2>{{tag.name}}</h2>
+        {%endfor%}
             
         </div>
         <!--Display news Article images  -->

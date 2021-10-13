@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
 <body>
-  <nav class="navbar navbar-dark bg-dark">
+  <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-dark bg-dark" href="{% url 'newsToday' %}">The Moringa Tribune</a>
+        <a class="navbar-brand" href="{% url 'newsToday' %}">The Moringa Tribune</a>
       </div>
+
       <!-- Adding a search form  -->
-      <div class="col-sm-4 col-md-4 navbar-right">
+<!--The search form above-->
+<div class="col-sm-6 col-md-6">
+  {% if user.is_authenticated %}
 
-        <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+    
+    <ul>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Account
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a href="{%url 'newsToday'%}">Home</a></li>
+        <li> <a href="/accounts/password/change">Change Password</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </li>
+    {% else %}
+    <li class="nav-item">
+      <a class='btn btn-success' href="/accounts/login">Login</a>
+    </li>
+  </ul>
 
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Article" name="article">
-            <div class="input-group-btn">
-              <button class="btn btn-success" type="submit">submit</button>
-            </div>
-          </div>
+  </li>
 
-        </form>
-      </div>
+  {% endif %}
+</div>
       <!-- search form end -->
-    </div>
-  </nav>
-</body>
 
+</body>
 </html>
